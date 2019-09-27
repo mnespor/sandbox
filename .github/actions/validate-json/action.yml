@@ -1,0 +1,8 @@
+name: 'Validate JSON'
+description: 'Check app settings for errors'
+outputs:
+  message: # id of output
+    description: 'Success or error'
+runs:
+  using: 'node12'
+  main: 'index.js'

@@ -1,0 +1,7 @@
+name: Continuous Integration
+on: [push, pull_request]
+jobs:
+  validate_json:
+    steps:
+      - name: Validate JSON
+        uses: ./.github/actions/validate-json

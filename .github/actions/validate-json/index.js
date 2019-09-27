@@ -4,7 +4,7 @@ const core = require('@actions/core')
 const { promisify } = require('util')
 const fs = require('fs')
 
-(async () => {
+;(async () => {
   try {
     core.setOutput('message', 'Success')
   } catch(error) {

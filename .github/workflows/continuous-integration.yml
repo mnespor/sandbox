@@ -2,6 +2,8 @@ name: Continuous Integration
 on: [push, pull_request]
 jobs:
   validate_json:
+    name: CI
+    runs-on: ubuntu-latest
     steps:
       - name: Validate JSON
         uses: ./.github/actions/validate-json

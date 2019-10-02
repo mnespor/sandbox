@@ -6,8 +6,13 @@ const fs = require('fs')
 
 ;(async () => {
   try {
-    core.setOutput('message', 'Success')
+    core.setOutput('message', `Working directory: ${process.cwd()}; File location: ${__filename}`)
+    
   } catch(error) {
     core.setFailed(error.message)
   }
 })()
+
+async function walk() {
+  
+}

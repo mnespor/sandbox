@@ -6,7 +6,7 @@ const { join } = require('path')
 
 async function find(path, predicate) {
   const paths = []
-  await walk(path, filePath => {
+  await walk(path, 100, filePath => {
     if (predicate(filePath)) {
       paths.push(filePath)
     }
@@ -15,14 +15,18 @@ async function find(path, predicate) {
   return paths
 }
 
-async function walk(path, callback) {
+async function walk(path, maxdepth, callback) {
+  if (maxDepth <= 0) {
+    return
+  }
+
   for (let dirent of await fs.readdir(path, { withFileTypes: true })) {
     if (dirent.name === '.git' || dirent.name == '.github') {
       continue
     }
 
     if (dirent.isDirectory()) {
-      await walk(join(path, dirent.name), callback)
+      await walk(join(path, maxdepth - 1, dirent.name), callback)
     } else if (dirent.isFile()) {
       callback(join(path, dirent.name))
     }

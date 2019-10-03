@@ -16,7 +16,7 @@ async function find(path, predicate) {
 }
 
 async function walk(path, maxdepth, callback) {
-  if (maxDepth <= 0) {
+  if (maxdepth <= 0) {
     return
   }
 

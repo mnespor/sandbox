@@ -26,7 +26,7 @@ async function walk(path, maxdepth, callback) {
     }
 
     if (dirent.isDirectory()) {
-      await walk(join(path, maxdepth - 1, dirent.name), callback)
+      await walk(join(path, dirent.name), maxdepth - 1, callback)
     } else if (dirent.isFile()) {
       callback(join(path, dirent.name))
     }
